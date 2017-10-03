@@ -17,16 +17,16 @@
 - (void)stp_setTheme:(STPTheme *)theme {
     UIImage *image = [self backgroundImageForState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
     if (image) {
-        UIImage *enabledImage = [STPImageLibrary imageWithTintColor:theme.accentColor forImage:image];
+        UIImage *enabledImage = [STPImageLibrary imageWithTintColor:UIColor.whiteColor forImage:image];
         UIImage *disabledImage = [STPImageLibrary imageWithTintColor:theme.secondaryForegroundColor forImage:image];
         [self setBackgroundImage:enabledImage forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
         [self setBackgroundImage:disabledImage forState:UIControlStateDisabled barMetrics:UIBarMetricsDefault];
     }
     
-    self.tintColor = self.enabled ? theme.accentColor : theme.secondaryForegroundColor;
+    self.tintColor = self.enabled ? UIColor.whiteColor : theme.secondaryForegroundColor;
     [self setTitleTextAttributes:@{
                                    NSFontAttributeName: self.style == UIBarButtonItemStylePlain ? theme.font : theme.emphasisFont,
-                                   NSForegroundColorAttributeName: theme.accentColor,
+                                   NSForegroundColorAttributeName: UIColor.whiteColor,
                                    }
                         forState:UIControlStateNormal];
     [self setTitleTextAttributes:@{
