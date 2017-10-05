@@ -56,6 +56,7 @@
 + (id)initWithPaymentDelegate:id;
 @property (nonatomic, assign, readwrite) BOOL hideCardIOLogo;
 @property (nonatomic, assign, readwrite) BOOL disableManualEntryButtons;
+@property(nonatomic, retain, readwrite) UIColor *navigationBarTintColorForCardIO;
 @property (nonatomic, assign, readwrite) CGFloat scannedImageDuration;
 @end
 
@@ -69,6 +70,7 @@
     && [proxiedClass instancesRespondToSelector:@selector(initWithPaymentDelegate:)]
     && [proxiedClass instancesRespondToSelector:@selector(setHideCardIOLogo:)]
     && [proxiedClass instancesRespondToSelector:@selector(setDisableManualEntryButtons:)]
+    && [proxiedClass instancesRespondToSelector:@selector(setNavigationBarTintColorForCardIO:)]
     && [proxiedClass instancesRespondToSelector:@selector(setScannedImageDuration:)];
 }
 @end
@@ -106,7 +108,7 @@
     cardIOViewController.hideCardIOLogo = YES;
     cardIOViewController.disableManualEntryButtons = YES;
     cardIOViewController.scannedImageDuration = 0;
-    [cardIOViewController.navigationController.navigationBar setTintColor:[UIColor colorWithRed:234.0/255.0 green:88.0/255.0 blue:86.0/255.0 alpha:1.0]];
+    cardIOViewController.navigationBarTintColorForCardIO = [UIColor colorWithRed:234.0/255.0 green:88.0/255.0 blue:86.0/255.0 alpha:1.0];
     [viewController presentViewController:cardIOViewController animated:YES completion:nil];
 }
 
